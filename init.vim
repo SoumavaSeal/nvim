@@ -78,6 +78,9 @@ Plug 'vim-syntastic/syntastic'
 "git-wrapper for vim
 Plug 'tpope/vim-fugitive'
 
+"starter page for nvim.
+Plug 'mhinz/vim-startify'
+
 " Initialize plugin system
 call plug#end()
 let g:airline#extensions#tabline#enabled = 1
@@ -126,7 +129,7 @@ noremap<leader>b :Buffers<CR>
 "Custom Commands.
 
 "Open the _vimrc file.
-command Config :edit ~/_vimrc
+command Config :edit ~/.config/nvim/init.vim
 
 "Delete current buffer.
 command Delete :bdelete
