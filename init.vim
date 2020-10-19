@@ -50,7 +50,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Themes and visual asthetics.
-Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
@@ -149,11 +148,6 @@ command Config :edit ~/.config/nvim/init.vim
 
 "Delete current buffer.
 command Delete :bdelete
-
-"Toggle between themes.
-command ThemeDark :colorscheme base16-gruvbox-dark-hard
-command ThemeLight :colorscheme base16-github
-command ThemeDefault :colorscheme base16-onedark
 
 "Default theme
 colorscheme gruvbox
