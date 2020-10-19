@@ -19,6 +19,7 @@ syntax on
 set guifont=FiraMono_NF:h11:cANSI
 set relativenumber
 set clipboard=unnamed
+set cursorline
 set noerrorbells
 set tabstop=4 softtabstop=4 
 set expandtab
@@ -81,6 +82,8 @@ Plug 'tpope/vim-fugitive'
 "starter page for nvim.
 Plug 'mhinz/vim-startify'
 
+Plug 'gabrielelana/vim-markdown'
+
 " Initialize plugin system
 call plug#end()
 let g:airline#extensions#tabline#enabled = 1
@@ -96,6 +99,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"vim-wiki settings
 let wiki_1 = {}
 let wiki_1.path = '~/vimwiki/'
 let wiki_1.syntax = 'markdown'
@@ -108,10 +112,22 @@ let wiki_2.ext = '.wiki'
 let g:vimwiki_list = [wiki_1, wiki_2]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
+"startify settings
+let g:startify_lists = [
+      \ { 'type': 'files',     'header': ['   Recent Files']            },
+      \ { 'type': 'dir',       'header': ['   current directory '. getcwd()] },
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
+
+let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, '~/Downloads/OneDrive-2020-10-11/final_year_projects/code(modified).m' ]
+
 "Setting up my leader.
 let mapleader=','
 
 "Toggle between windows.
+"
 noremap<leader>h :wincmd h<CR>
 noremap<leader>j :wincmd j<CR>
 noremap<leader>k :wincmd k<CR>
@@ -124,7 +140,7 @@ noremap<leader>s :source %<CR>
 noremap<leader>pwd :cd %:p:h<CR>
 
 "Buffer List
-noremap<leader>b :Buffers<CR>
+noremap<leader>bl :Buffers<CR>
 
 "Custom Commands.
 
@@ -147,15 +163,6 @@ colorscheme gruvbox
 "Toggle the File Explorer => ctrl + n
 map <C-n> :NERDTreeToggle<CR>
 
-"Toggle between fullscreen => <F4>
-map <F4> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
-
-"Hide menu bar => ctrl + m
-map<C-m> :set guioptions-=m<CR>
-
-"Hide Toolbar => ctrl + t
-map<C-t> :set guioptions-=T<CR>
-
 "Set colorscheme to default
 map<C-d> :colorscheme default<CR>
 
@@ -163,7 +170,7 @@ map<C-d> :colorscheme default<CR>
 map<C-f> :FZF<CR>
 
 "Buffer next
-map<C-Tab> :bn<CR>
+map<C-t> :bn<CR>
 
 "Cpp compile and run
-map<F5> :w <CR> :!cls && g++ % && a.exe<CR>
+map <f5> :w <bar> !g++ -Wall % -o %:r.out && ./%:r.out <cr>
