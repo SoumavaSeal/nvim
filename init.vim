@@ -83,6 +83,12 @@ Plug 'mhinz/vim-startify'
 
 Plug 'gabrielelana/vim-markdown'
 
+"Distraction free writing
+Plug 'junegunn/goyo.vim'
+
+"Focus on current line
+Plug 'junegunn/limelight.vim'
+
 " Initialize plugin system
 call plug#end()
 let g:airline#extensions#tabline#enabled = 1
@@ -121,6 +127,34 @@ let g:startify_lists = [
       \ ]
 
 let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, '~/Downloads/OneDrive-2020-10-11/final_year_projects/code(modified).m' ]
+
+
+"LimeLight settings
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+" Default: 0.5
+let g:limelight_default_coefficient = 0.7
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 1
+
+" Beginning/end of paragraph
+"   When there's no empty line between the paragraphs
+"   and each paragraph starts with indentation
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+
+" Highlighting priority (default: 10)
+"   Set it to -1 not to overrule hlsearch
+let g:limelight_priority = -1
+
 
 "Setting up my leader.
 let mapleader=','
@@ -166,5 +200,8 @@ map<C-f> :FZF<CR>
 "Buffer next
 map<C-t> :bn<CR>
 
+"Toggle Distraction free mode.
+map<f10> :Goyo<CR> :Limelight<CR>
+
 "Cpp compile and run
-map <f5> :w <bar> !g++ -Wall % -o %:r.out && ./%:r.out <cr>
+map <f5> :w <bar> !g++ -Wall % -o %:r.out && ./%:r.out <CR>
