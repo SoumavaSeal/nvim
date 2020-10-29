@@ -155,6 +155,10 @@ let g:limelight_eop = '\ze\n^\s'
 "   Set it to -1 not to overrule hlsearch
 let g:limelight_priority = -1
 
+"Default theme
+colorscheme gruvbox
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 
 "Setting up my leader.
 let mapleader=','
@@ -182,9 +186,6 @@ command Config :edit ~/.config/nvim/init.vim
 
 "Delete current buffer.
 command Delete :bdelete
-
-"Default theme
-colorscheme gruvbox
 
 "Basic key map
 
