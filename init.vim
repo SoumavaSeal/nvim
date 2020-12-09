@@ -72,9 +72,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plugin for the auto close of the brackets and quotes
 Plug 'vim-scripts/delimitMate.vim'
 
-"Plugin for syntax checker
-Plug 'vim-syntastic/syntastic' 
-
 "git-wrapper for vim
 Plug 'tpope/vim-fugitive'
 
@@ -89,20 +86,13 @@ Plug 'junegunn/goyo.vim'
 "Focus on current line
 Plug 'junegunn/limelight.vim'
 
+"color indicator
+Plug 'ap/vim-css-color'
+
 " Initialize plugin system
 call plug#end()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='simple'
-
-"Syntastics settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 "vim-wiki settings
 let wiki_1 = {}
